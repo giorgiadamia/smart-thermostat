@@ -20,6 +20,9 @@ public class Thermostat {
     @Column(name = "temperature")
     private double temperature;
 
+    @Column(name = "threshold_temperature")
+    private double thresholdTemperature;
+
     @Column(name = "is_critical")
     private boolean isCritical;
 
