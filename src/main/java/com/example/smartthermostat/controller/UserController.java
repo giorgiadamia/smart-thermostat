@@ -1,10 +1,8 @@
 package com.example.smartthermostat.controller;
 
-import com.example.smartthermostat.model.User;
+import com.example.smartthermostat.model.domain.User;
 import com.example.smartthermostat.model.dto.UserDto;
 import com.example.smartthermostat.service.UserService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 

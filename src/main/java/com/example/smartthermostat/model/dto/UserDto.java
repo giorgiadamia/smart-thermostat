@@ -1,7 +1,8 @@
 package com.example.smartthermostat.model.dto;
 
-import com.example.smartthermostat.model.Thermostat;
-import lombok.*;
+import com.example.smartthermostat.model.domain.Thermostat;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 

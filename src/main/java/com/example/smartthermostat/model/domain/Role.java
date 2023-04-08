@@ -1,4 +1,4 @@
-package com.example.smartthermostat.model;
+package com.example.smartthermostat.model.domain;
 
 import org.springframework.security.core.GrantedAuthority;
 

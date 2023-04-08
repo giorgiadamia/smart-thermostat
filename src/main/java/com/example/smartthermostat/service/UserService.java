@@ -1,7 +1,7 @@
 package com.example.smartthermostat.service;
 
-import com.example.smartthermostat.model.Role;
-import com.example.smartthermostat.model.User;
+import com.example.smartthermostat.model.domain.Role;
+import com.example.smartthermostat.model.domain.User;
 import com.example.smartthermostat.model.dto.UserDto;
 import com.example.smartthermostat.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
