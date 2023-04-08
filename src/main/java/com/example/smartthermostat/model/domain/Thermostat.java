@@ -16,12 +16,11 @@ public class Thermostat {
     private Long id;
 
     @Column(name = "temperature")
-    @NonNull
-    private Double temperature;
+    private Integer temperature;
 
     @Column(name = "threshold_temperature")
     @NonNull
-    private Double thresholdTemperature;
+    private Integer thresholdTemperature;
 
     @Column(name = "is_critical")
     private boolean isCritical;
@@ -38,6 +37,7 @@ public class Thermostat {
                 ", temperature=" + temperature +
                 ", thresholdTemperature=" + thresholdTemperature +
                 ", isCritical=" + isCritical +
+                ", user=" + user.getId() +
                 '}';
     }
 }
