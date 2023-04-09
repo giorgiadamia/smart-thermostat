@@ -9,7 +9,6 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
-@RequiredArgsConstructor
 public class Thermostat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,11 +18,10 @@ public class Thermostat {
     private Integer temperature;
 
     @Column(name = "threshold_temperature")
-    @NonNull
     private Integer thresholdTemperature;
 
     @Column(name = "is_critical")
-    private boolean isCritical;
+    private Boolean isCritical;
 
     @JsonIgnore
     @ManyToOne

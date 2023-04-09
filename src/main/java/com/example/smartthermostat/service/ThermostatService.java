@@ -21,7 +21,6 @@ public class ThermostatService {
     public void createThermostat(User user, Thermostat thermostat) {
         user.getThermostats().add(thermostat);
         thermostat.setUser(user);
-        thermostat.setCritical(thermostat.getTemperature() > thermostat.getThresholdTemperature());
         thermostatRepository.save(thermostat);
     }
 
@@ -33,10 +32,14 @@ public class ThermostatService {
         return checkIfPresent(thermostatRepository.findById(id));
     }
 
-    public void updateThreshold(Long id, Integer threshold) {
-        Thermostat thermostat = checkIfPresent(thermostatRepository.findById(id));
-        thermostat.setThresholdTemperature(threshold);
-        thermostat.setCritical(thermostat.getTemperature() > thermostat.getThresholdTemperature());
+    public void updateThreshold(Long id, Thermostat thermostat) {
+        Thermostat thermostatFromMemory = checkIfPresent(thermostatRepository.findById(id));
+        thermostatFromMemory.setThresholdTemperature(thermostat.getThresholdTemperature());
+        if (thermostatFromMemory.getTemperature() != null) {
+            thermostatFromMemory.setIsCritical(thermostatFromMemory.getTemperature()
+                    > thermostatFromMemory.getThresholdTemperature());
+        }
+        thermostatRepository.save(thermostatFromMemory);
     }
 
     public void deleteThermostat(Long id) {
@@ -44,10 +47,11 @@ public class ThermostatService {
         thermostatRepository.deleteById(id);
     }
 
-    public void updateTemperature(Long id, Integer temperature) {
-        Thermostat thermostat = checkIfPresent(thermostatRepository.findById(id));
-        thermostat.setTemperature(temperature);
-        thermostat.setCritical(thermostat.getTemperature() > thermostat.getThresholdTemperature());
+    public void updateTemperature(Long id, Thermostat thermostat) {
+        Thermostat thermostatFromMemory = checkIfPresent(thermostatRepository.findById(id));
+        thermostatFromMemory.setTemperature(thermostat.getTemperature());
+        thermostatFromMemory.setIsCritical(thermostatFromMemory.getTemperature() > thermostatFromMemory.getThresholdTemperature());
+        thermostatRepository.save(thermostatFromMemory);
     }
 
     private static Thermostat checkIfPresent(Optional<Thermostat> thermostatOptional) {

@@ -34,13 +34,13 @@ public class ThermostatController {
     }
 
     @PutMapping("/threshold/{id}")
-    public void updateThreshold(@PathVariable Long id, Integer threshold) {
-        thermostatService.updateThreshold(id, threshold);
+    public void updateThreshold(@PathVariable Long id, @RequestBody Thermostat thermostat) {
+        thermostatService.updateThreshold(id, thermostat);
     }
 
     @PutMapping("/{id}")
-    public void updateTemperature(@PathVariable Long id, Integer temperature) {
-        thermostatService.updateTemperature(id, temperature);
+    public void updateTemperature(@PathVariable Long id, @RequestBody Thermostat thermostat) {
+        thermostatService.updateTemperature(id, thermostat);
     }
 
     @DeleteMapping("/{id}")
