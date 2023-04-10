@@ -10,10 +10,6 @@ import java.net.URI;
 import java.util.*;
 
 public class TemperatureSimulator {
-
-
-    private static final int DELAY_MS = 1000;
-
     public static void main(String[] args) throws InterruptedException {
         String url = "http://localhost:8080/api/thermostat/{id}";
         String urlGet = "http://localhost:8080/api/thermostat";
