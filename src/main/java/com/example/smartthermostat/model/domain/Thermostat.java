@@ -35,7 +35,6 @@ public class Thermostat {
                 ", temperature=" + temperature +
                 ", thresholdTemperature=" + thresholdTemperature +
                 ", isCritical=" + isCritical +
-                ", user=" + user.getId() +
                 '}';
     }
 }
