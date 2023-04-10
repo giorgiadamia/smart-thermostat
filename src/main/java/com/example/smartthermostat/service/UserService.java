@@ -47,9 +47,10 @@ public class UserService implements UserDetailsService {
     }
 
     public UserDto show(User user) {
+        User userFromDatabase = userRepository.findByUsername(user.getUsername());
         UserDto userDto = new UserDto();
-        userDto.setUsername(user.getUsername());
-        userDto.setThermostats(user.getThermostats());
+        userDto.setUsername(userFromDatabase.getUsername());
+        userDto.setThermostats(userFromDatabase.getThermostats());
         return userDto;
     }
 }
